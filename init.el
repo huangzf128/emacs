@@ -33,4 +33,5 @@
 
 (require 'init_com)
 (require 'init_def)
+;; (package-install-selected-packages) ;; install package in package-selected-packages
 (require 'init_package)
