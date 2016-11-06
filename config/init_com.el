@@ -69,14 +69,23 @@
 			 (set-font   "Consolas" "Microsoft Yahei"   18 20)
   )
 
+;; (defun suzuki-mac-input-method-decorate (roman-source japanese-source)
+;;   (mac-set-input-method-parameter japanese-source 'title "あ")
+;;   (mac-set-input-method-parameter japanese-source 'cursor-color "red")
+;;   (mac-set-input-method-parameter roman-source 'cursor-color "blue"))
 
-(defun smooth-scroll (increment)
- (scroll-up increment) (sit-for 0.05)
- (scroll-up increment) (sit-for 0.02)
- (scroll-up increment) (sit-for 0.02)
- (scroll-up increment) (sit-for 0.05)
- (scroll-up increment) (sit-for 0.06)
- (scroll-up increment))
+;; (when (boundp 'mac-input-method-parameters)
+;;   (setq default-input-method "MacOSX")
+;;   (cond
+;;    ;; ことえり
+;;    ((string-match "com.apple.inputmethod.Kotoeri" (mac-get-current-input-source))
+;;     (suzuki-mac-input-method-decorate
+;;      "com.apple.inputmethod.Kotoeri.Roman"
+;;      "com.apple.inputmethod.Kotoeri.Japanese"))
+;;    ;; Google 日本語入力
+;;    ((string-match "com.google.inputmethod.Japanese" (mac-get-current-input-source))
+;;     (suzuki-mac-input-method-decorate
+;;      "com.google.inputmethod.Japanese.Roman"
+;;      "com.google.inputmethod.Japanese.base"))))
 
-(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
-(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
+

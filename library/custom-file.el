@@ -72,11 +72,12 @@
   (set-fontset-font (frame-parameter nil 'font)
                     'hangul               ;script 까까까까까까까까까까까까까까까까까까까까
                     (font-spec :family "Apple SD Gothic Neo" :size 16))
-
   )
 
 (when (and (equal system-type 'darwin) (window-system))
-  (add-hook 'after-init-hook 'create-frame-font-mac))
+  (add-hook 'after-init-hook 'create-frame-font-mac)	;; font for mac
+  (add-hook 'after-init-hook 'emacs-daemon-after-make-frame-hook)  ;; window layout for mac
+  )
 ;; (create-frame-font-mac)
 ;; (create-fontset-from-fontset-spec
 ;;    "-apple-Menlo-medium-normal-normal-*-12-*-*-*-m-0-fontset-mymac,
@@ -90,22 +91,20 @@
 
 
 (defun  emacs-daemon-after-make-frame-hook(&optional f) ;emacsclient 打开的窗口相关的设置
-  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-  (with-selected-frame f
-    (when (window-system)
-      (when (equal system-type 'darwin) (create-frame-font-mac))
-      (set-frame-position f 160 80)
-      (set-frame-size f 140 50)
-      (set-frame-parameter f 'alpha 85)
-      (raise-frame))))
+  
+  (set-frame-parameter f 'alpha 85)
+  (set-frame-size f 110 60)
+  (set-frame-position f 250 25)
+ ;; (with-selected-frame f    	
+  )
 
 ;; (frame-parameters)
 
-;; (add-hook 'before-make-frame-hook 'emacs-daemon-after-make-frame-hook)
-(add-hook 'after-make-frame-functions 'emacs-daemon-after-make-frame-hook)
-;; (emacs-daemon-after-make-frame-hook)
+;(add-hook 'before-make-frame-hook 'emacs-daemon-after-make-frame-hook)
+;(add-hook 'after-make-frame-functions 'emacs-daemon-after-make-frame-hook)
+
+
+ ;;(emacs-daemon-after-make-frame-hook)
 
 ;; (defadvice text-scale-adjust (around allow_adjust_cjk_font_size activate)
 ;;   "在mac 窗口模式下，允许字体大小可变，因默认的等宽字体大小是固定的，不允许调大小"
@@ -222,86 +221,4 @@
         (setq mode-name mode-str)))))
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
-
-;; (require 'joseph-font)
-
-
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(blink-cursor-mode t)
-;;  '(column-number-mode t)
-;;  '(custom-group-tag-faces (quote (default)))
-;;  '(electric-pair-mode t)
-;;  '(git-commit-setup-hook
-;;    (quote
-;;     (git-commit-save-message magit-revert-buffers git-commit-save-message git-commit-setup-changelog-support git-commit-turn-on-auto-fill git-commit-propertize-diff with-editor-usage-message)))
-;;  '(global-auto-revert-mode t)
-;;  '(helm-minibuffer-history-key "C-r")
-;;  '(magit-commit-ask-to-stage t)
-;;  '(magit-no-confirm
-;;    (quote
-;;     (reverse discard rename trash delete abort-merge drop-stashes resect-bisect kill-process stage-all-changes unstage-all-changes)))
-;;  '(magit-push-arguments (quote ("--force-with-lease")))
-;;  '(magit-save-repository-buffers (quote dontask))
-;;  '(menu-bar-mode t)
-;;  '(op/personal-github-link "https://github.com/jixiuf")
-;;  '(package-selected-packages
-;;    (quote
-;;     (company evil-textobj-anyblock exec-path-from-shell multi-term actionscript-mode android-mode applescript-mode async auto-complete auto-complete-clang batch-mode bm crontab-mode dockerfile-mode erlang etags-table ethan-wspace evil evil-leader evil-magit evil-matchit evil-terminal-cursor-changer flycheck fuzzy git-commit go-autocomplete go-eldoc go-mode golden-ratio goto-chg helm helm-core helm-descbinds helm-ls-git hide-lines hide-region htmlize iedit jedi js3-mode logstash-conf lua-mode magit magit-popup magit-svn markdown-mode move-text openwith org-page powershell protobuf-mode sqlplus tern thrift web-mode wgrep wgrep-helm with-editor yaml-mode yasnippet)))
-;;  '(safe-local-variable-values
-;;    (quote
-;;     ((checkdoc-minor-mode . t)
-;;      (mangle-whitespace . t)
-;;      (eval progn
-;;            (setq jedi:environment-root
-;;                  (expand-file-name "./virtual/"
-;;                                    (locate-dominating-file default-directory "Makefile")))
-;;            (setq jedi:server-args
-;;                  (\`
-;;                   ("--virtual-env"
-;;                    (\,
-;;                     (expand-file-name "./virtual/"
-;;                                       (locate-dominating-file default-directory "Makefile")))
-;;                    "--virtual-env"
-;;                    (\,
-;;                     (expand-file-name "~/python/"))
-;;                    "--virtual-env" "/System/Library/Frameworks/Python.framework/Versions/2.7/" "--sys-path"
-;;                    (\,
-;;                     (expand-file-name
-;;                      (expand-file-name "./src/"
-;;                                        (locate-dominating-file default-directory "Makefile"))))
-;;                    "--sys-path"
-;;                    (\,
-;;                     (expand-file-name
-;;                      (expand-file-name "./src/db"
-;;                                        (locate-dominating-file default-directory "Makefile"))))
-;;                    "--sys-path" "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7" "--sys-path" ".")))
-;;            (setq exec-path
-;;                  (delete-dups
-;;                   (cons
-;;                    (expand-file-name "./virtual/bin/"
-;;                                      (locate-dominating-file default-directory "Makefile"))
-;;                    exec-path)))
-;;            (setenv "PATH"
-;;                    (concat
-;;                     (expand-file-name "./virtual/bin/"
-;;                                       (locate-dominating-file default-directory "Makefile"))
-;;                     ":"
-;;                     (getenv "PATH")))
-;;            (setenv "PYTHONPATH"
-;;                    (expand-file-name "./src/"
-;;                                      (locate-dominating-file default-directory "Makefile")))
-;;            (setenv "PYTHONPATH"
-;;                    (expand-file-name "./db/"
-;;                                      (locate-dominating-file default-directory "Makefile"))))
-;;      (folded-file . t)
-;;      (tab-always-indent))))
-;;  '(save-place-file "~/.emacs.d/cache/place")
-;;  '(save-place-mode t)
-;;  '(scroll-bar-mode nil)
-;;  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 
