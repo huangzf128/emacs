@@ -65,5 +65,18 @@
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family chinese :size chinese-size))))
 
-(set-font   "Consolas" "Microsoft Yahei"   18 20)
+(when (equal window-system 'w32)
+			 (set-font   "Consolas" "Microsoft Yahei"   18 20)
+  )
 
+
+(defun smooth-scroll (increment)
+ (scroll-up increment) (sit-for 0.05)
+ (scroll-up increment) (sit-for 0.02)
+ (scroll-up increment) (sit-for 0.02)
+ (scroll-up increment) (sit-for 0.05)
+ (scroll-up increment) (sit-for 0.06)
+ (scroll-up increment))
+
+(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
+(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
