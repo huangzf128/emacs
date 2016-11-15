@@ -48,6 +48,7 @@
 (setq company-idle-delay 0) ;default:0.5
 (setq company-minimum-prefix-length 2) ; default:4
 (setq company-selection-wrap-around t) 
+(setq company-dabbrev-downcase nil)
 
 (defun js-mode-hook ()
   "Hooks for Javascript mode."
@@ -81,4 +82,4 @@
 (global-set-key (kbd "C-x f") 'counsel-describe-function) 
 (global-set-key (kbd "C-x v") 'counsel-describe-variable) 
 
-
+(require 'plsql)

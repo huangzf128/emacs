@@ -6,7 +6,7 @@
  '(blink-cursor-mode nil)
  '(package-selected-packages
    (quote
-    (csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets web-mode auto-complete))))
+	(iedit csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets web-mode auto-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
