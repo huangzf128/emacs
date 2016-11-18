@@ -62,18 +62,19 @@
 (add-hook 'js-mode-hook 'js2-minor-mode)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-;; ~~~~~~~~~~~~~~~~~~~ company-tern ~~~~~~~
+;; ~~~~~~~~~~~~~ company-tern ~~~~~~~~~~~~~~~~
 (add-to-list 'load-path "~/.emacs.d/library/tern/emacs")
 (autoload 'tern-mode "tern.el" nil t)
 
 (require 'company-tern)
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
 (add-to-list 'company-backends 'company-tern)
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; ~~~~~~~~~~~~ ivy(swiper) ~~~~~~~~~~~~~~~~~
 (require 'ivy)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -81,5 +82,19 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-x f") 'counsel-describe-function) 
 (global-set-key (kbd "C-x v") 'counsel-describe-variable) 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (require 'plsql)
+
+(require 'hide-region)
+
+(require 'thingopt)
+(define-thing-commands)
+(global-set-key (kbd "C-@") 'mark-word)
+
+;; ~~~~~~~~~~~~ highlight-symbol-colors ~~~~~~~~~~~~~~~~~
+(require 'highlight-symbol)
+(setq highlight-symbol-colors '("DarkOrange" "DeepPink1" "PeachPuff1" "SeaGreen2" "OrangeRed1")) 
+(global-set-key (kbd "<f3>") 'highlight-symbol-at-point)
+(global-set-key (kbd "<f4>") 'highlight-symbol-remove-all)
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
