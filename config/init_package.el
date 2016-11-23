@@ -88,10 +88,6 @@
 
 (require 'hide-region)
 
-(require 'thingopt)
-(define-thing-commands)
-(global-set-key (kbd "C-@") 'mark-word)
-
 ;; ~~~~~~~~~~~~ highlight-symbol-colors ~~~~~~~~~~~~~~~~~
 (require 'highlight-symbol)
 (setq highlight-symbol-colors '("DarkOrange" "DeepPink1" "PeachPuff1" "SeaGreen2" "OrangeRed1")) 

@@ -2,7 +2,7 @@
 
 (setq auto-save-default nil)
 (setq create-lockfiles nil)   ;;not create lock file like ".#file..."
-(setq backup-directory-alist `((".*" . "C:/Windows/Temp")))
+(setq backup-directory-alist `((".*" . "~/.emacs.d/backup")))
 (setq default-major-mode 'text-mode)
 (put 'narrow-to-region 'disabled nil)
 

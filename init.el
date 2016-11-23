@@ -6,7 +6,7 @@
  '(blink-cursor-mode nil)
  '(package-selected-packages
    (quote
-	(thingopt highlight-symbol iedit csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets web-mode auto-complete))))
+	(highlight-symbol iedit csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets web-mode auto-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -33,6 +33,9 @@
 
 (require 'init_com)
 (require 'init_def)
+;; install package in package-selected-packages
 ;; (package-refresh-contents)
-;; (package-install-selected-packages) ;; install package in package-selected-packages
+;; (package-install-selected-packages)
+
+
 (require 'init_package)
