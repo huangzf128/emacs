@@ -25,6 +25,7 @@
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 (setq default-tab-width 4) 
 
+(setq cua-enable-cua-keys nil)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	key bind
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,6 +40,9 @@
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;; hide/show toggle
+(global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; theme, layout
