@@ -1,5 +1,4 @@
 (provide 'init_package)
-
 ;; ========================
 ;; WEB-MODE
 ;; ========================
@@ -94,3 +93,7 @@
 (global-set-key (kbd "<f3>") 'highlight-symbol-at-point)
 (global-set-key (kbd "<f4>") 'highlight-symbol-remove-all)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(require 'smooth-scrolling)
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling

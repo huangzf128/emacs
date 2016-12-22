@@ -8,7 +8,6 @@
       (browse-url-of-file (expand-file-name default-directory))
     (error "No `default-directory' to open")))
 
-
 ;; delete word
 (defun my-delete-word (arg)
   "Delete one word. This command does not push text to `kill-ring'."
