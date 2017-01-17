@@ -15,7 +15,19 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;-------------------------------
+;; Environment 
+;;-------------------------------
+(when (string-equal system-type "windows-nt")
+  (setenv "PATH"
+		  (concat
+		   "C:/Program Files/Git/usr/bin" ";"
+		   (getenv "PATH")
+		   )))
 
+;;-------------------------------
+;; path 
+;;-------------------------------
 (add-to-list 'load-path "~/.emacs.d/library/")
 (add-to-list 'load-path "~/.emacs.d/config/")
 
