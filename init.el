@@ -37,7 +37,7 @@
 (require 'package)
 
 ;; MELPA
- (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+ (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 ;; Marmalade
 ;;(add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
@@ -51,3 +51,5 @@
 
 
 (require 'init_package)
+
+;; ------------  Temp ------------------
