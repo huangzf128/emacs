@@ -4,28 +4,31 @@
 (setq create-lockfiles nil)   ;;not create lock file like ".#file..."
 (setq backup-directory-alist `((".*" . "~/.emacs.d/backup")))
 (setq default-major-mode 'text-mode)
+
 (put 'narrow-to-region 'disabled nil)
-
 (fset 'yes-or-no-p 'y-or-n-p) ;; replace yes with y
-
-(require 'recentf)
-(recentf-mode t)
-(setq recentf-max-menu-items 10)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
-(delete-selection-mode +1) ;;delete selection on insert
-(setq kill-whole-line t)   ;;delete include \r\n
+(delete-selection-mode +1)    ;;delete selection on insert
+(setq kill-whole-line t)      ;;delete include \r\n
+(blink-cursor-mode 0)         ;;disable cursor blinking
 
 (set-default 'truncate-lines t) ;; display in one line
-;;(global-hl-line-mode t) ;; current line with color
-(electric-pair-mode t) ;; auto ( )
+(electric-pair-mode t)          ;; auto()
 
 (setf org-src-fontify-natively t) ;; the same color with the code mode 
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 (setq default-tab-width 4) 
+(setq cua-enable-cua-keys nil) ;; cua mode without change key bind
+;;(global-hl-line-mode t) ;; current line with color
 
-(setq cua-enable-cua-keys nil)
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; 	minor mode
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(require 'recentf)
+(recentf-mode t)
+(setq recentf-max-menu-items 10)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	key bind
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -91,5 +94,3 @@
 ;;     (suzuki-mac-input-method-decorate
 ;;      "com.google.inputmethod.Japanese.Roman"
 ;;      "com.google.inputmethod.Japanese.base"))))
-
-
