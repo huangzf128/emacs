@@ -1,25 +1,28 @@
 (provide 'init_com)
 
 (setq auto-save-default nil)
-(setq create-lockfiles nil)   ;;not create lock file like ".#file..."
-(setq backup-directory-alist `((".*" . "~/.emacs.d/backup")))
+(setq create-lockfiles nil)              ;; not create lock file like ".#file..."
+(setq backup-directory-alist
+	  `((".*" . "~/.emacs.d/backup")))
 (setq default-major-mode 'text-mode)
-
+(setq delete-by-moving-to-trash t)       ;; remove file to Recycle Bin
 (put 'narrow-to-region 'disabled nil)
-(fset 'yes-or-no-p 'y-or-n-p) ;; replace yes with y
-(delete-selection-mode +1)    ;;delete selection on insert
-(setq kill-whole-line t)      ;;delete include \r\n
-(blink-cursor-mode 0)         ;;disable cursor blinking
+(fset 'yes-or-no-p 'y-or-n-p)            ;; replace yes with y
+(delete-selection-mode +1)               ;; delete selection on insert
+(setq kill-whole-line t)                 ;; delete include \r\n
+(blink-cursor-mode 0)                    ;; disable cursor blinking
 
-(set-default 'truncate-lines t) ;; display in one line
-(electric-pair-mode t)          ;; auto()
+(set-default 'truncate-lines t)          ;; display in one line
+(electric-pair-mode t)                   ;; auto()
 
-(setf org-src-fontify-natively t) ;; the same color with the code mode 
+(setf org-src-fontify-natively t)        ;; the same color with the code mode 
 
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+(put 'downcase-region 'disabled nil)     ;; enable function, c-x c-l
+(put 'upcase-region 'disabled nil)       ;; c-x c-u
+
 (setq default-tab-width 4) 
-(setq cua-enable-cua-keys nil) ;; cua mode without change key bind
-;;(global-hl-line-mode t) ;; current line with color
+(setq cua-enable-cua-keys nil)           ;; cua mode without change key bind
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	minor mode
