@@ -31,3 +31,11 @@ This command does not push text to `kill-ring'."
     (delete-region p1 p2))(delete-char 1))
 
 (global-set-key (kbd "C-k") 'my-delete-line)
+
+;; copy word
+(defun my-copy-word (arg)
+  "copy one word."
+  (interactive "p")
+  (copy-region-as-kill
+   (progn (backward-word arg) (point))
+   (progn (forward-word arg)  (point))))

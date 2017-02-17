@@ -1,4 +1,8 @@
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -6,9 +10,13 @@
  '(haskell-tags-on-save t)
  '(package-selected-packages
    (quote
-	(hindent web-mode haskell-mode smooth-scrolling highlight-symbol iedit csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets auto-complete))))
+	(neotree hindent web-mode haskell-mode smooth-scrolling highlight-symbol iedit csv-mode counsel swiper company-tern js2-mode company php-auto-yasnippets auto-complete))))
 
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ;;-------------------------------
@@ -48,6 +56,8 @@
 
 ;; ------------  Temp ------------------
 
+(require 'neotree)
+;; (global-set-key [f8] 'neotree-toggle)
 
 ;; (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 ;; (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
