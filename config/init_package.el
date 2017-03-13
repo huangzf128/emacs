@@ -60,7 +60,7 @@
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 (let ((my-cabal-path (expand-file-name "C:/Users/huang/AppData/Roaming/cabal/bin")))
-  (setenv "PATH" (concat my-cabal-path ":" (getenv "PATH")))
+  (setenv "PATH" (concat my-cabal-path ";" (getenv "PATH")))
   (add-to-list 'exec-path my-cabal-path))
 
 (setq haskell-ghci-program-args '("repl"))
@@ -95,6 +95,19 @@
 ;; =======================================
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(elpy-enable)
+(setq python-shell-completion-native-enable nil) 
+(defvar myPackages
+  '(better-defaults
+    elpy
+    flycheck ;; add the flycheck package
+    material-theme))
+
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
 
 (require 'plsql)
 
