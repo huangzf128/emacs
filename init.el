@@ -55,8 +55,7 @@
 
 ;; ------------  Temp ------------------
 
-(require 'neotree)
-;; (global-set-key [f8] 'neotree-toggle)
+
 
 ;; (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 ;; (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)

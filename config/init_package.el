@@ -96,6 +96,9 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 (elpy-enable)
 (setq python-shell-completion-native-enable nil) 
 (defvar myPackages

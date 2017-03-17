@@ -38,8 +38,6 @@
 ;;open emacs home 
 (defun open-my-init-file() (interactive) (find-file "~/.emacs.d/"))
 (global-set-key (kbd "<f7>") 'open-my-init-file)
-(defun open-my-memo() (interactive) (find-file "~/.emacs.d/memo/"))
-(global-set-key (kbd "<f8>") 'open-my-memo)
 
 ;; move window
 (global-set-key (kbd "C-c <left>")  'windmove-left)
@@ -48,7 +46,7 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
 ;; hide/show toggle
-(global-set-key (kbd "<f2>") 'hs-toggle-hiding)
+;; (global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; theme, layout

@@ -39,3 +39,13 @@ This command does not push text to `kill-ring'."
   (copy-region-as-kill
    (progn (backward-word arg) (point))
    (progn (forward-word arg)  (point))))
+
+;; hide region
+(defun hide-show-region ()
+  (interactive)
+  (if (use-region-p)
+	  (hide-region-hide)
+	  (hide-region-unhide-below)
+	  ))
+
+(global-set-key (kbd "<f2>") 'hide-show-region)
