@@ -91,16 +91,12 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 
 ;; =======================================
-;;  others
+;;  python
 ;; =======================================
-(require 'yasnippet)
-(yas-global-mode 1)
-
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
 (elpy-enable)
 (setq python-shell-completion-native-enable nil) 
+(set-process-coding-system (get-buffer-process (elpy-rpc--get-rpc-buffer)) 'utf-8-dos 'utf-8-dos)
+;;(elpy-use-ipython)
 (defvar myPackages
   '(better-defaults
     elpy
@@ -111,6 +107,40 @@
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+(set-buffer-file-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+
+(setq shell-mode-hook
+      (function (lambda()
+                  (set-buffer-process-coding-system 'utf-8 'utf-8)
+				  (setq locale-coding-system 'utf-8)
+				  (set-terminal-coding-system 'utf-8)
+				  (set-language-environment 'UTF-8) ; prefer utf-8 for language settings
+				  (set-default-coding-systems 'utf-8)
+				  (setq default-buffer-file-coding-system 'utf-8)
+				  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+				  (prefer-coding-system       'utf-8)
+				  (setq buffer-file-coding-system 'utf-8)
+				  (setq default-file-name-coding-system 'utf-8)
+				  (setq default-keyboard-coding-system 'utf-8)
+				  (setq default-process-coding-system '(utf-8 . utf-8))
+				  (setq default-sendmail-coding-system 'utf-8)
+				  (setq default-terminal-coding-system 'utf-8)
+
+				  )))
+
+
+;; =======================================
+;;  others
+;; =======================================
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 
 (require 'plsql)
 

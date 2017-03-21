@@ -23,7 +23,7 @@
 ;; Environment 
 ;;-------------------------------
 (set-language-environment 'utf-8)
-;;(set-terminal-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 (when (string-equal system-type "windows-nt")
   (setenv "PATH"
 		  (concat
@@ -54,7 +54,6 @@
 (require 'init_package)
 
 ;; ------------  Temp ------------------
-
 
 
 ;; (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
