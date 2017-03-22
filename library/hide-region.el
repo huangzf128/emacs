@@ -154,7 +154,7 @@ deleting the overlay from the hide-region-overlays \"ring\"."
     (setq number (- number 1))
     (while (>= number 0)
       (setq tmp-start (overlay-start (nth number hide-region-overlays)))
-      (if (and (>  tmp-start point) (or (eq tmp-len nil) (< tmp-start tmp-len)))
+      (if (and (=  tmp-start point) (or (eq tmp-len nil) (< tmp-start tmp-len)))
           (progn
             (setq tmp-len tmp-start)
             (setq tmp-number number)))

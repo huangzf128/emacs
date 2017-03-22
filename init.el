@@ -23,7 +23,7 @@
 ;; Environment 
 ;;-------------------------------
 (set-language-environment 'utf-8)
-(set-terminal-coding-system 'utf-8)
+
 (when (string-equal system-type "windows-nt")
   (setenv "PATH"
 		  (concat
@@ -52,9 +52,16 @@
 ;; (package-install-selected-packages)
 
 (require 'init_package)
-
 ;; ------------  Temp ------------------
 
+;; (set-default-coding-systems 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-keyboard-coding-system 'utf-8)
+;; (setq buffer-file-coding-system 'utf-8)
+;; (setq default-file-name-coding-system 'utf-8)
+;; (prefer-coding-system 'utf-8)
+;; (set-default-coding-systems 'Japanese)
+;; (set-terminal-coding-system 'utf-8)
 
 ;; (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 ;; (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)

@@ -41,11 +41,19 @@ This command does not push text to `kill-ring'."
    (progn (forward-word arg)  (point))))
 
 ;; hide region
-(defun hide-show-region ()
-  (interactive)
+(defun hide-show-region (point)
+  (interactive "d")
   (if (use-region-p)
-	  (hide-region-hide)
-	  (hide-region-unhide-below)
+	  (hide-region-hide())
+	  (hide-region-unhide-below(point))
 	  ))
 
 (global-set-key (kbd "<f2>") 'hide-show-region)
+
+(defun hasRegion()
+  (interactive)
+  (if (use-region-p)
+	  (message "has")
+	(message "none")
+	)
+  )
