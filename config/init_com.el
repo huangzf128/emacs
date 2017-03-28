@@ -24,6 +24,7 @@
 (setq cua-enable-cua-keys nil)           ;; cua mode without change key bind
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+(add-hook 'org-mode-hook 'org-indent-mode)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	minor mode
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,6 +49,7 @@
 ;; hide/show toggle
 ;; (global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
+(define-key global-map [remap kill-buffer] 'kill-buffer-and-window)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; theme, layout
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
