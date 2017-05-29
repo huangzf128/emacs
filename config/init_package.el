@@ -12,15 +12,15 @@
 ;; indent
 (defun web-mode-hook ()
   "Hooks for Web mode."
-  (setq web-mode-html-offset   2)
-  (setq web-mode-css-offset     2)
-  (setq web-mode-script-offset 2)
-  (setq web-mode-php-offset   2)
-  (setq web-mode-java-offset   2)
+  (setq web-mode-html-offset    4)
+  (setq web-mode-css-offset     4)
+  (setq web-mode-script-offset  4)
+  (setq web-mode-php-offset     4)
+  (setq web-mode-java-offset    4)
        (company-mode 1)
        (auto-complete-mode -1)
        (tern-mode t)
-  (setq tab-width 2))
+  (setq tab-width 4))
 (add-hook 'web-mode-hook 'web-mode-hook)
 
 ;; =======================================
