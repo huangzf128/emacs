@@ -17,6 +17,7 @@
   (setq web-mode-script-offset  4)
   (setq web-mode-php-offset     4)
   (setq web-mode-java-offset    4)
+  (setq web-mode-script-padding 0)
        (company-mode 1)
        (auto-complete-mode -1)
        (tern-mode t)
