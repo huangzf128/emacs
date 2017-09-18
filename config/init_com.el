@@ -24,7 +24,7 @@
 (setq cua-enable-cua-keys nil)           ;; cua mode without change key bind
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-(setq initial-frame-alist '((width . 120) (height . 43)))
+(setq initial-frame-alist '((width . 120) (height . 35)))
 
 (add-hook 'org-mode-hook 'org-indent-mode)
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
