@@ -14,6 +14,7 @@
 
 (set-default 'truncate-lines t)          ;; display in one line
 (electric-pair-mode t)                   ;; auto()
+(global-linum-mode 1)                    ;; always show row number
 
 (setf org-src-fontify-natively t)        ;; the same color with the code mode 
 
@@ -51,7 +52,7 @@
 ;; hide/show toggle
 ;; (global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
-(define-key global-map [remap kill-buffer] 'kill-buffer-and-window)
+(global-set-key (kbd "C-x k") 'kill-this-buffer) ;; kill buffer without confirm
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; theme, layout
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,7 +79,7 @@
                       (font-spec :family chinese :size chinese-size))))
 
 (when (equal window-system 'w32)
-			 (set-font   "Consolas" "Microsoft Yahei"   18 20)
+			 (set-font   "Consolas" "Microsoft Yahei" 18 16)
   )
 
 ;; (defun suzuki-mac-input-method-decorate (roman-source japanese-source)
