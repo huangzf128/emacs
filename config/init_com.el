@@ -16,12 +16,12 @@
 (electric-pair-mode t)                   ;; auto()
 (global-linum-mode 1)                    ;; always show row number
 
-(setf org-src-fontify-natively t)        ;; the same color with the code mode 
+(setf org-src-fontify-natively t)        ;; the same color with the code mode
 
 (put 'downcase-region 'disabled nil)     ;; enable function, c-x c-l
 (put 'upcase-region 'disabled nil)       ;; c-x c-u
 
-(setq default-tab-width 4) 
+(setq default-tab-width 4)
 (setq cua-enable-cua-keys nil)           ;; cua mode without change key bind
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
@@ -39,7 +39,7 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	key bind
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;;open emacs home 
+;;open emacs home
 (defun open-my-init-file() (interactive) (find-file "~/.emacs.d/"))
 (global-set-key (kbd "<f7>") 'open-my-init-file)
 
@@ -53,6 +53,10 @@
 ;; (global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
 (global-set-key (kbd "C-x k") 'kill-this-buffer) ;; kill buffer without confirm
+
+(add-hook 'before-save-hook
+          'delete-trailing-whitespace)    ;; remove last space
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; theme, layout
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
