@@ -10,7 +10,7 @@
  '(haskell-tags-on-save t)
  '(package-selected-packages
    (quote
-	(web-mode counsel flycheck elpy neotree hindent haskell-mode smooth-scrolling highlight-symbol iedit csv-mode company-tern js2-mode company php-auto-yasnippets auto-complete))))
+	(web-mode counsel elpy neotree hindent haskell-mode smooth-scrolling highlight-symbol iedit csv-mode company-tern js2-mode company php-auto-yasnippets auto-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -20,7 +20,7 @@
  )
 
 ;;-------------------------------
-;; Environment 
+;; Environment
 ;;-------------------------------
 (set-language-environment 'utf-8)
 
@@ -31,7 +31,7 @@
 		   (getenv "PATH")
 		   )))
 ;;-------------------------------
-;; path 
+;; path
 ;;-------------------------------
 (add-to-list 'load-path "~/.emacs.d/library/")
 (add-to-list 'load-path "~/.emacs.d/config/")

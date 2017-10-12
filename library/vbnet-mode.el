@@ -1336,7 +1336,7 @@ fast enough.
 
 (defvar vbnet-namespace-face 'vbnet-namespace-face)
 (defface vbnet-namespace-face
-  '((((background light))
+  '((((background dark))
      (:foreground "DarkSalmon"))
     (((background dark))
      (:background "DarkSalmon")))
@@ -1345,8 +1345,8 @@ fast enough.
 
 (defvar vbnet-funcall-face 'vbnet-funcall-face)
 (defface vbnet-funcall-face
-  '((((background light))
-     (:foreground "dim gray"))
+  '((((background dark))
+     (:foreground "HotPink"))
     (((background dark))
      (:background "grey")))
   "Face for function calls in VB.NET buffers."
