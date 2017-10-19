@@ -33,12 +33,19 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "C-k") 'my-delete-line)
 
 ;; copy word
-(defun my-copy-word (arg)
-  "copy one word."
+(defun copy-current-word (arg)
+  "copy one word. if no region, copy the word around pointer"
   (interactive "p")
-  (copy-region-as-kill
-   (progn (backward-word arg) (point))
-   (progn (forward-word arg)  (point))))
+  (let (bounds pos1 pos2 mything)
+	(if (use-region-p)
+		(setq pos1 (region-beginning) pos2 (region-end))
+	  (progn
+		(setq bounds (bounds-of-thing-at-point 'symbol))
+		(setq pos1 (car bounds))
+		(setq pos2 (cdr bounds))))
+	(if (and (not (equal pos1 nil)) (not (equal pos2 nil)))
+		(copy-region-as-kill pos1 pos2))))
+(global-set-key (kbd "M-w") 'copy-current-word)
 
 ;; hide region
 (defun hide-show-region (point)
@@ -49,11 +56,3 @@ This command does not push text to `kill-ring'."
 	  ))
 
 (global-set-key (kbd "<f2>") 'hide-show-region)
-
-(defun hasRegion()
-  (interactive)
-  (if (use-region-p)
-	  (message "has")
-	(message "none")
-	)
-  )
