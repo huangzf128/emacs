@@ -20,7 +20,7 @@
 
 ;; delete line
 (defun my-delete-line ()
-  "Delete text from current position to end of line char.
+  "Delete current line char.
 This command does not push text to `kill-ring'."
   (interactive)
   (let (p1 p2)
@@ -33,7 +33,7 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "C-k") 'my-delete-line)
 
 ;; copy word
-(defun copy-current-word (arg)
+(defun my-copy-word (arg)
   "copy one word. if no region, copy the word around pointer"
   (interactive "p")
   (let (bounds pos1 pos2 mything)
@@ -45,11 +45,11 @@ This command does not push text to `kill-ring'."
 		(setq pos2 (cdr bounds))))
 	(if (and (not (equal pos1 nil)) (not (equal pos2 nil)))
 		(copy-region-as-kill pos1 pos2))))
-(global-set-key (kbd "M-w") 'copy-current-word)
+(global-set-key (kbd "M-w") 'my-copy-word)
 
 ;; hide region
 (defun hide-show-region (point)
-  (interactive "d")
+  (interactive "p")
   (if (use-region-p)
 	  (hide-region-hide())
 	  (hide-region-unhide-below(point))
