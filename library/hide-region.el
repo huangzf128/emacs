@@ -110,15 +110,15 @@ not really placed in the text, it is just shown in the overlay"
 (defvar hide-region-overlays nil
   "Variable to store the regions we put an overlay on.")
 
-(defun hide-region-hide ()
+(defun hide-region-hide (point)
   "Hides a region by making an invisible overlay over it and save the
 overlay on the hide-region-overlays \"ring\""
-  (interactive)
+  (interactive "d")
   (make-variable-buffer-local 'hide-region-overlays)
   (let ((new-overlay (make-overlay (mark) (point))))
     (setq hide-region-overlays
-	  (append
-	   (list new-overlay) hide-region-overlays))
+		  (append
+		   (list new-overlay) hide-region-overlays))
     (overlay-put new-overlay 'invisible t)
     (overlay-put new-overlay 'intangible t)
     (overlay-put new-overlay 'before-string
@@ -130,7 +130,8 @@ overlay on the hide-region-overlays \"ring\""
                  (if hide-region-propertize-markers
                      (propertize hide-region-after-string
                                  'font-lock-face 'region)
-                   hide-region-after-string))))
+                   hide-region-after-string))
+	(deactivate-mark)))
 
 (defun hide-region-unhide ()
   "Unhide a region at a time, starting with the last one hidden and
@@ -138,7 +139,7 @@ deleting the overlay from the hide-region-overlays \"ring\"."
   (interactive)
   (make-variable-buffer-local 'hide-region-overlays)
   (if (car hide-region-overlays)
-      (progn
+       (progn
 	(delete-overlay (car hide-region-overlays))
 	(setq hide-region-overlays (cdr hide-region-overlays)))))
 
@@ -154,7 +155,7 @@ deleting the overlay from the hide-region-overlays \"ring\"."
     (setq number (- number 1))
     (while (>= number 0)
       (setq tmp-start (overlay-start (nth number hide-region-overlays)))
-      (if (and (=  tmp-start point) (or (eq tmp-len nil) (< tmp-start tmp-len)))
+      (if (and (> tmp-start point) (or (eq tmp-len nil) (< tmp-start tmp-len)))
           (progn
             (setq tmp-len tmp-start)
             (setq tmp-number number)))
@@ -169,9 +170,7 @@ deleting the overlay from the hide-region-overlays \"ring\"."
       (if (car hide-region-overlays)
       (progn
 	(delete-overlay (car hide-region-overlays))
-	(setq hide-region-overlays (cdr hide-region-overlays)))))
-    ))
-
+	(setq hide-region-overlays (cdr hide-region-overlays)))))))
 
 (defun hide-region-unhide-all ()
   (interactive)

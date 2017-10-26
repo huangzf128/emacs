@@ -48,8 +48,8 @@ This command does not push text to `kill-ring'."
 (global-set-key (kbd "M-w") 'my-copy-word)
 
 ;; hide region
-(defun hide-show-region (point)
-  (interactive "p")
+(defun hide-show-region ()
+  (interactive)
   (if (use-region-p)
 	  (hide-region-hide())
 	  (hide-region-unhide-below(point))

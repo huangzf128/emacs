@@ -28,6 +28,7 @@
 (setq initial-frame-alist '((width . 120) (height . 35)))
 
 (add-hook 'org-mode-hook 'org-indent-mode)
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; 	minor mode
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
