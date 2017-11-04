@@ -10,7 +10,7 @@
  '(haskell-tags-on-save t)
  '(package-selected-packages
    (quote
-	(web-mode counsel elpy neotree hindent haskell-mode smooth-scrolling highlight-symbol iedit csv-mode company-tern js2-mode company php-auto-yasnippets auto-complete))))
+	(flycheck web-mode counsel elpy neotree hindent haskell-mode smooth-scrolling highlight-symbol iedit csv-mode company-tern js2-mode company php-auto-yasnippets auto-complete))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
