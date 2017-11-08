@@ -54,5 +54,4 @@ This command does not push text to `kill-ring'."
 	  (hide-region-hide())
 	  (hide-region-unhide-below(point))
 	  ))
-
 (global-set-key (kbd "<f2>") 'hide-show-region)

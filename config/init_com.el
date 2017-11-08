@@ -1,6 +1,7 @@
 (provide 'init_com)
 
 (setq auto-save-default nil)
+(setq auto-save-list-file-prefix nil)
 (setq create-lockfiles nil)              ;; not create lock file like ".#file..."
 (setq backup-directory-alist
 	  `((".*" . "~/.emacs.d/backup")))
