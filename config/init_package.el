@@ -97,10 +97,11 @@
 (elpy-enable)
 (setq python-shell-completion-native-enable nil)
 
-(defun python-shell-parse-command ()
-  "Return the string used to execute the inferior Python process."
-  "python3 -i")
-(setq elpy-rpc-python-command "python3")
+;; (defun python-shell-parse-command ()
+;;   "Return the string used to execute the inferior Python process."
+;;   "python3 -i")
+;; (setq elpy-rpc-python-command "python3")
+
 
 ;;(elpy-use-ipython)
 (when (require 'flycheck nil t)

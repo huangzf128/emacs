@@ -54,7 +54,7 @@
 ;; hide/show toggle
 ;; (global-set-key (kbd "<f2>") 'hs-toggle-hiding)
 
-(global-set-key (kbd "C-x k") 'kill-this-buffer) ;; kill buffer without confirm
+(global-set-key (kbd "C-x k") 'kill-buffer-and-window) ;; kill buffer without confirm
 
 (add-hook 'before-save-hook
           'delete-trailing-whitespace)    ;; remove last space
