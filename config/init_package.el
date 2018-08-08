@@ -74,7 +74,10 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
-(global-set-key (kbd "C-s") 'swiper)
+;;(global-set-key (kbd "C-s") 'swiper)
+
+(global-set-key (kbd "C-s") (lambda () (interactive) (swiper (get-current-word(interactive)))))
+
 (global-set-key (kbd "C-x f") 'counsel-describe-function)
 (global-set-key (kbd "C-x v") 'counsel-describe-variable)
 ;; =======================================
@@ -117,6 +120,7 @@
 ;; =======================================
 (require 'yasnippet)
 (yas-global-mode 1)
+
 
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)

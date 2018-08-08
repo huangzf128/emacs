@@ -44,8 +44,26 @@ This command does not push text to `kill-ring'."
 		(setq pos1 (car bounds))
 		(setq pos2 (cdr bounds))))
 	(if (and (not (equal pos1 nil)) (not (equal pos2 nil)))
-		(copy-region-as-kill pos1 pos2))))
+		(copy-region-as-kill pos1 pos2)
+	  )))
 (global-set-key (kbd "M-w") 'my-copy-word)
+
+
+;; current word
+(defun get-current-word (arg)
+  "get current word. if no region, copy the word around pointer"
+  (interactive "p")
+  (let (bounds pos1 pos2 mything)
+	(if (use-region-p)
+		(setq pos1 (region-beginning) pos2 (region-end))
+	  (progn
+		(setq bounds (bounds-of-thing-at-point 'symbol))
+		(setq pos1 (car bounds))
+		(setq pos2 (cdr bounds))))
+	(if (and (not (equal pos1 nil)) (not (equal pos2 nil)))
+		  (buffer-substring-no-properties pos1 pos2)
+	  )))
+
 
 ;; hide region
 (defun hide-show-region ()
