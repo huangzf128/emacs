@@ -103,7 +103,11 @@
 ;; (defun python-shell-parse-command ()
 ;;   "Return the string used to execute the inferior Python process."
 ;;   "python3 -i")
-;; (setq elpy-rpc-python-command "python3")
+
+(setq elpy-rpc-python-command "python")
+(setq elpy-shell-use-project-root nil) ; to start the shell in the directory of the Python file
+;;(setq flycheck-highlighting-mode 'lines)
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
 
 ;;(elpy-use-ipython)
 (when (require 'flycheck nil t)
