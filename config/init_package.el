@@ -85,8 +85,8 @@
 ;; =======================================
 (require 'highlight-symbol)
 (setq highlight-symbol-colors '("DarkOrange" "DeepPink1" "PeachPuff1" "SeaGreen2" "OrangeRed1"))
-(global-set-key (kbd "<f3>") 'highlight-symbol-at-point)
-(global-set-key (kbd "<f4>") 'highlight-symbol-remove-all)
+(global-set-key (kbd "<f4>") 'highlight-symbol-at-point)
+(global-set-key (kbd "S-<f4>") 'highlight-symbol-remove-all)
 ;; =======================================
 ;;  smooth-scrolling
 ;; =======================================
@@ -118,6 +118,13 @@
 			   ;;(set-language-environment 'Japanese)
 			   (setenv "PYTHONIOENCODING" "utf-8")
 			   )))
+
+(add-hook 'python-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "<f3>") 'elpy-goto-definition)
+             (local-set-key (kbd "S-<f3>") 'xref-pop-marker-stack)
+			 ))
+
 ;; =======================================
 ;;  others
 ;; =======================================
